@@ -1,0 +1,341 @@
+/* src/styles/pages/Home.css */
+.home-page {
+    min-height: 100vh;
+    padding-bottom: 50px;
+  }
+  
+  /* Section spacing */
+  .home-page .section {
+    margin: 60px auto;
+  }
+  
+  /* First section has less top margin */
+  .home-page .section:first-child {
+    margin-top: 30px;
+  }
+  
+  /* Seafood section */
+  .seafood-section {
+    margin: 60px auto;
+  }
+  
+  .seafood-section .section-title {
+    margin-bottom: 25px;
+  }
+  
+  .seafood-section .section-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .seafood-section .section-title p {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  /* Section dividers */
+  .section-divider {
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 60px auto;
+    max-width: 1200px;
+  }
+  
+  /* Featured collections section */
+  .featured-collections {
+    margin: 60px auto;
+  }
+  
+  .featured-collections-title {
+    margin-bottom: 25px;
+  }
+  
+  .featured-collections-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .featured-collections-title p {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .collection-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .collection-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .collection-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .collection-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+  }
+  
+  .collection-overlay h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .collection-overlay p {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  
+  /* Special offers section */
+  .special-offers {
+    background-color: #fef2f4;
+    padding: 40px 0;
+    margin: 60px 0;
+  }
+  
+  .special-offers-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .offer-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+  }
+  
+  .offer-image {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .offer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .offer-content {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .offer-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #d11243;
+  }
+  
+  .offer-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .offer-code {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+  }
+  
+  /* Download app section */
+  .download-app {
+    max-width: 1280px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .app-content {
+    flex: 1;
+  }
+  
+  .app-content h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .app-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .app-stores {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .app-stores img {
+    height: 45px;
+  }
+  
+  .app-image {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .app-image img {
+    max-width: 100%;
+    max-height: 400px;
+  }
+  
+  /* Loading state */
+  .home-loading {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 1024px) {
+    .collections-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .download-app {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+    }
+    
+    .app-stores {
+      justify-content: center;
+    }
+    
+    .app-image {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .home-page .section {
+      margin: 40px auto;
+    }
+    
+    .section-divider {
+      margin: 40px auto;
+    }
+    
+    .seafood-section .section-title h2,
+    .featured-collections-title h2 {
+      font-size: 20px;
+    }
+    
+    .seafood-section .section-title p,
+    .featured-collections-title p {
+      font-size: 13px;
+    }
+    
+    .offers-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .collection-card {
+      height: 160px;
+    }
+    
+    .collection-overlay h3 {
+      font-size: 16px;
+    }
+    
+    .collection-overlay p {
+      font-size: 13px;
+    }
+    
+    .app-content h2 {
+      font-size: 24px;
+    }
+    
+    .app-content p {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-page .section {
+      margin: 30px auto;
+    }
+    
+    .section-divider {
+      margin: 30px auto;
+    }
+    
+    .collections-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .collection-card {
+      height: 180px;
+    }
+    
+    .special-offers {
+      padding: 30px 0;
+    }
+    
+    .offer-image {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .offer-content h3 {
+      font-size: 16px;
+    }
+    
+    .offer-content p {
+      font-size: 12px;
+    }
+    
+    .app-stores {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

@@ -1,0 +1,310 @@
+/* src/styles/pages/admin/ProductForm.css */
+.product-form-page {
+    padding: 30px;
+    background-color: #f5f7fb;
+    min-height: 100vh;
+  }
+  
+  .admin-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .back-link svg {
+    margin-right: 5px;
+  }
+  
+  .page-header h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .product-form {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .form-section {
+    margin-bottom: 30px;
+  }
+  
+  .form-section h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .form-subsection {
+    margin-bottom: 20px;
+  }
+  
+  .form-subsection h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: #4e73df;
+    outline: none;
+  }
+  
+  .form-group input.error,
+  .form-group textarea.error,
+  .form-group select.error {
+    border-color: #e74a3b;
+    background-color: #fff8f8;
+  }
+  
+  .error-text {
+    color: #e74a3b;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .form-group small {
+    color: #666;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 28px;
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .checkbox-label input {
+    margin-right: 8px;
+    width: auto;
+  }
+  
+  /* Image upload styling */
+  .image-upload {
+    position: relative;
+  }
+  
+  .image-preview {
+    width: 100%;
+    height: 250px;
+    border: 2px dashed #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .image-preview.empty:hover {
+    border-color: #4e73df;
+  }
+  
+  .image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .upload-placeholder {
+    color: #666;
+    text-align: center;
+  }
+  
+  .image-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .remove-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e74a3b;
+  }
+  
+  /* Form actions */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .cancel-button,
+  .save-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background-color: #f8f9fc;
+    border: 1px solid #ddd;
+    color: #666;
+  }
+  
+  .save-button {
+    background-color: #4e73df;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .save-button svg {
+    margin-right: 5px;
+  }
+  
+  .save-button:hover {
+    background-color: #2e59d9;
+  }
+  
+  .save-button:disabled {
+    background-color: #b7c1e2;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .product-form-page {
+      padding: 20px;
+    }
+    
+    .product-form {
+      padding: 20px;
+    }
+    
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    
+    .image-preview {
+      height: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-form-page {
+      padding: 15px;
+    }
+    
+    .product-form {
+      padding: 15px;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+    }
+    
+    .cancel-button,
+    .save-button {
+      width: 100%;
+    }
+  }

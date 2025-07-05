@@ -1,0 +1,1796 @@
+/* src/styles/pages/Cart.css */
+.cart-page {
+  padding: 30px 0;
+  background-color: #f8f8f8;
+}
+
+.cart-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.back-to-shopping {
+  display: flex;
+  align-items: center;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-to-shopping svg {
+  margin-right: 5px;
+}
+
+.cart-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cart-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.cart-items {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.cart-item-name {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.cart-item-specs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.cart-item-specs span {
+  font-size: 13px;
+  color: #666;
+  margin-right: 15px;
+  position: relative;
+}
+
+.cart-item-specs span:not(:last-child)::after {
+  content: '|';
+  position: absolute;
+  right: -10px;
+  color: #ddd;
+}
+
+.cart-item-price {
+  display: flex;
+  align-items: center;
+}
+
+.current-price {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.original-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.discount {
+  color: #d11243;
+  font-size: 13px;
+}
+
+.cart-item-quantity {
+  margin: 0 20px;
+}
+
+.quantity-controls {
+  position: relative;
+  width: 90px;
+  left: 170px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.quantity-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+}
+
+.quantity-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-value {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.cart-item-subtotal {
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 80px;
+  text-align: right;
+}
+
+.remove-item-button {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.remove-item-button:hover {
+  color: #d11243;
+}
+
+.clear-cart-button {
+  display: block;
+  margin-top: 20px;
+  background: none;
+  border: 1px solid #999;
+  color: #666;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.clear-cart-button:hover {
+  border-color: #d11243;
+  color: #d11243;
+}
+
+.cart-summary {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.cart-summary h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.coupon-code {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.coupon-code input {
+  flex-grow: 1;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+}
+
+.coupon-code input:disabled {
+  background-color: #f5f5f5;
+}
+
+.apply-coupon-button {
+  width: 80px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.apply-coupon-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.applied-coupon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f0f9e8;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.coupon-badge {
+  background-color: #5cb85c;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.summary-item.discount {
+  color: #5cb85c;
+}
+
+.summary-item.total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.checkout-button {
+  width: 100%;
+  height: 50px;
+  background-color: #d11243;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+  background-color: #b30f3a;
+}
+
+.delivery-note {
+  margin-top: 20px;
+  color: #666;
+  font-size: 13px;
+  text-align: center;
+}
+
+.delivery-note p {
+  margin-bottom: 5px;
+}
+
+.empty-cart {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.empty-cart-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.empty-cart-icon {
+  font-size: 60px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.empty-cart h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.empty-cart p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.continue-shopping-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #d11243;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.continue-shopping-button:hover {
+  background-color: #b30f3a;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .cart-content {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-content {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+
+  .cart-item-details {
+    width: calc(100% - 120px);
+    margin-left: 15px;
+  }
+
+  .cart-item-quantity {
+    margin: 15px 0 0 120px;
+    width: auto;
+    display: flex;
+  }
+
+  .cart-item-subtotal {
+    margin: 15px 0 0 20px;
+    text-align: left;
+  }
+
+  .remove-item-button {
+    top: 10px;
+    right: 0;
+    position: absolute;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-page {
+    padding: 20px 0;
+  }
+
+  .cart-container {
+    padding: 0 15px;
+  }
+
+  .cart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .back-to-shopping {
+    margin-bottom: 15px;
+  }
+
+  .cart-header h1 {
+    font-size: 20px;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    position: relative;
+  }
+
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cart-item-details {
+    width: calc(100% - 95px);
+    margin-left: 15px;
+  }
+
+  .cart-item-name {
+    font-size: 14px;
+    max-width: calc(100% - 25px);
+    /* Make room for the remove button */
+  }
+
+  .cart-item-specs span {
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .cart-item-price {
+    flex-wrap: wrap;
+  }
+
+  .cart-item-price .discount {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .cart-item-quantity {
+    margin: 10px 0 0 0;
+    width: 50%;
+  }
+
+  .cart-item-subtotal {
+    margin: 10px 0 0 0;
+    width: 50%;
+    text-align: right;
+  }
+
+  .quantity-button,
+  .quantity-value {
+    width: 28px;
+    height: 28px;
+  }
+
+  .cart-items,
+  .cart-summary {
+    padding: 15px;
+  }
+
+  .cart-summary h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+
+  .coupon-code input {
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .apply-coupon-button {
+    width: 70px;
+    font-size: 13px;
+  }
+
+  .summary-item {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .summary-item.total {
+    font-size: 16px;
+  }
+
+  .checkout-button {
+    height: 45px;
+    font-size: 15px;
+  }
+
+  .empty-cart {
+    padding: 50px 20px;
+  }
+
+  .empty-cart-container {
+    padding: 30px 20px;
+  }
+
+  .empty-cart-icon {
+    font-size: 50px;
+  }
+
+  .empty-cart h2 {
+    font-size: 20px;
+  }
+
+  .continue-shopping-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .remove-item-button {
+    top: 15px;
+    right: 0;
+  }
+}
+
+/* Ensure cart items are always visible on mobile */
+@media (max-width: 480px) {
+  .cart-content {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .cart-items {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: visible;
+  }
+
+  .cart-item {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+}
+
+.cart-item-details {
+  width: calc(100% - 95px);
+  margin-left: 15px;
+}
+
+.cart-item-name {
+  font-size: 14px;
+  max-width: calc(100% - 25px);
+  /* Make room for the remove button */
+}
+
+.cart-item-specs span {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.cart-item-price {
+  flex-wrap: wrap;
+}
+
+.cart-item-price .discount {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.cart-item-quantity {
+  margin: 10px 0 0 0;
+  width: 50%;
+}
+
+/* Add this to your existing CSS file */
+
+.product-card {
+  position: relative;
+}
+
+.item-quantity-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #d11243;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Ensure the badge is clearly visible over any content */
+.item-quantity-badge.active {
+  display: flex;
+}
+
+.item-quantity-badge.hidden {
+  display: none;
+}
+
+/* Make the badge more noticeable with a small animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.item-quantity-badge.updated {
+  animation: pulse 0.3s ease-in-out;
+}
+
+/* Previous Orders Section Styles */
+.previous-orders-section {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.toggle-previous-orders-button {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.toggle-previous-orders-button:hover {
+  background-color: #e8e8e8;
+}
+
+.toggle-previous-orders-button svg {
+  margin-right: 8px;
+}
+
+.loading-orders {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.no-previous-orders {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+.previous-orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.previous-order-item {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.previous-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.previous-order-info h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.previous-order-date {
+  font-size: 12px;
+  color: #777;
+  display: block;
+  margin-top: 4px;
+}
+
+.previous-order-total {
+  font-weight: bold;
+  font-size: 16px;
+  color: #e53935;
+}
+
+.previous-order-items {
+  border-top: 1px dashed #ddd;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.previous-order-item-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.previous-item-name {
+  color: #555;
+}
+
+.previous-item-price {
+  font-weight: 500;
+}
+
+/* Help Center Button */
+.help-center-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff9800;
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: background-color 0.3s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.help-center-button:hover {
+  background-color: #f57c00;
+}
+
+.help-center-button svg {
+  margin-right: 6px;
+}
+
+/* Help Center Overlay */
+.help-center-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.help-center-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 20px;
+  position: relative;
+}
+
+.help-center-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.help-center-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+}
+
+.close-help-button {
+  background: none;
+  border: none;
+  color: #777;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.close-help-button:hover {
+  color: #333;
+}
+
+.help-center-order-info {
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.help-center-order-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.help-center-question h4 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.help-issues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.help-issue-item {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f9f9f9;
+}
+
+.help-issue-item:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+.help-issue-item.selected {
+  background-color: #e8f5e9;
+  border-color: #81c784;
+  font-weight: 500;
+}
+
+.help-solution {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.help-solution h5 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 15px;
+}
+
+.help-solution p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.help-note-section {
+  margin-top: 25px;
+}
+
+.help-note-section h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.help-note-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.help-note-input:focus {
+  outline: none;
+  border-color: #aaa;
+}
+
+.submit-help-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: auto;
+}
+
+.submit-help-button:hover {
+  background-color: #388e3c;
+}
+
+.submit-help-button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+.submit-help-button svg {
+  margin-left: 8px;
+}
+
+.help-success-message {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.help-success-message h4 {
+  color: #388e3c;
+  margin-bottom: 10px;
+}
+
+.help-success-message p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.close-help-button-success {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.close-help-button-success:hover {
+  background-color: #388e3c;
+}
+
+/* Ensure previous orders section looks good in the empty cart state */
+.empty-cart .previous-orders-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto 0;
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .previous-order-header {
+    flex-direction: column;
+  }
+  
+  .previous-order-total {
+    margin-top: 5px;
+  }
+  
+  .previous-order-item-detail {
+    font-size: 13px;
+  }
+  
+  .help-center-container {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .help-issue-item {
+    padding: 10px;
+  }
+}
+
+/* Add these styles to your Cart.css file */
+
+/* Order Status Styles */
+.order-status-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.order-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  margin: 5px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.order-status-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.payment-method {
+  font-size: 13px;
+  color: #666;
+  background-color: #f9f9f9;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid #eee;
+}
+
+/* Status colors are defined in the component using inline styles */
+
+/* Help Center Order Status */
+.help-center-order-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.help-center-order-info .order-status-badge {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+/* Order Timeline (Optional Enhancement) */
+.order-timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  padding: 0 10px;
+  position: relative;
+}
+
+.order-timeline::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 40px;
+  right: 40px;
+  height: 3px;
+  background-color: #e0e0e0;
+  z-index: 1;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-icon.active {
+  background-color: #27ae60;
+  color: white;
+}
+
+.timeline-label {
+  font-size: 12px;
+  text-align: center;
+  max-width: 80px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .order-status-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .payment-method {
+    margin-top: 5px;
+  }
+  
+  .order-timeline {
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .order-timeline::before {
+    left: 20px;
+    right: 20px;
+  }
+}
+
+.order-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  margin-right: 10px;
+}
+
+.payment-details {
+  display: none;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+.payment-details small {
+  display: block;
+  margin-bottom: 3px;
+}
+/* Refund details styling */
+.refund-details {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 6px;
+  border-left: 3px solid #9b59b6;
+  font-size: 14px;
+}
+
+.refund-amount, .refund-date {
+  margin-bottom: 5px;
+}
+
+.refund-amount span, .refund-date span {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Status badge enhancement */
+.order-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  margin-right: 10px;
+}
+/* Add these styles to your Cart.css file */
+
+/* Refund Overlay and Container */
+.refund-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refund-container {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+}
+
+.refund-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.refund-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.close-refund-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #777;
+  transition: color 0.2s;
+}
+
+.close-refund-button:hover {
+  color: #e74c3c;
+}
+
+/* Refund Request Button */
+.refund-request-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.refund-request-button:hover {
+  background-color: #9b59b6;
+}
+
+.refund-request-button:disabled {
+  background-color: #d1d1d1;
+  cursor: not-allowed;
+}
+
+/* Order Action Buttons Container */
+.order-action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Refund Status Badges */
+.refund-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.refund-status-completed {
+  background-color: #8e44ad;
+  color: white;
+}
+
+.refund-status-partial {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.refund-status-pending {
+  background-color: #e67e22;
+  color: white;
+}
+
+.refund-status-none {
+  background-color: #95a5a6;
+  color: white;
+}
+
+/* Refund Details in Order */
+.order-refund-details {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 3px solid #8e44ad;
+}
+
+.refund-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.refund-label {
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.refund-amount {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.refund-date {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.refund-reason {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 3px;
+}
+
+/* Special styling for refund tickets */
+.ticket-status-badge.refund-ticket {
+  background-color: #8e44ad;
+  color: white;
+  border: 1px solid #6c3483;
+}
+
+/* Make refund requests stand out more in the order history */
+.order-ticket-status .ticket-label:has(+ .refund-ticket) {
+  color: #8e44ad;
+  font-weight: bold;
+}
+/* Add these styles to your Cart.css file */
+
+/* Refund Overlay and Container */
+.refund-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refund-container {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+}
+
+.refund-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.refund-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.close-refund-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #777;
+  transition: color 0.2s;
+}
+
+.close-refund-button:hover {
+  color: #e74c3c;
+}
+
+/* Refund Request Button */
+.refund-request-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.refund-request-button:hover {
+  background-color: #9b59b6;
+}
+
+.refund-request-button:disabled {
+  background-color: #d1d1d1;
+  cursor: not-allowed;
+}
+
+/* Order Action Buttons Container */
+.order-action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Refund Status Badges */
+.refund-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.refund-status-completed {
+  background-color: #8e44ad;
+  color: white;
+}
+
+.refund-status-partial {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.refund-status-pending {
+  background-color: #e67e22;
+  color: white;
+}
+
+.refund-status-progress {
+  background-color: #3498db;
+  color: white;
+}
+
+.refund-status-none {
+  background-color: #95a5a6;
+  color: white;
+}
+
+/* Refund Details in Order */
+.order-refund-details {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 3px solid #8e44ad;
+}
+
+.refund-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.refund-label {
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.refund-amount {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.refund-date {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.refund-reason {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 3px;
+}
+
+/* Special styling for refund tickets */
+.ticket-status-badge.refund-ticket {
+  background-color: #8e44ad;
+  color: white;
+  border: 1px solid #6c3483;
+}
+
+/* Make refund requests stand out more in the order history */
+.order-ticket-status .ticket-label:has(+ .refund-ticket) {
+  color: #8e44ad;
+  font-weight: bold;
+}
+
+/* Admin Panel Styles */
+.status-explanation {
+  margin-top: 5px;
+  color: #777;
+}
+
+.ticket-response-form {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.ticket-response-form h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-response-button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.submit-response-button:hover {
+  background-color: #3498db;
+}
+
+.submit-response-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+/* Add these styles to your Cart.css file */
+
+/* Refund request container */
+.refund-request-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Refund timer styling */
+.refund-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #e67e22;
+  background-color: #fff3e0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-top: 3px;
+}
+
+.timer-icon {
+  font-size: 0.9rem;
+}
+
+.timer-text {
+  font-weight: bold;
+  font-family: monospace;
+}
+
+/* Expired message styling */
+.refund-expired-message {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  background-color: #f5f5f5;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-top: 5px;
+}
+
+/* Style for refund request button */
+.refund-request-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 15px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.refund-request-button:hover {
+  background-color: #d35400;
+}
+
+/* Animation for urgent timer (under 1 minute) */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.refund-timer.urgent {
+  animation: pulse 1s infinite;
+  color: #e74c3c;
+  background-color: #ffeceb;
+}
+
+/* Refund expired notification */
+.refund-expired-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #e74c3c;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 12px 16px;
+  max-width: 300px;
+  z-index: 1000;
+  animation: slideIn 0.3s forwards, fadeOut 0.3s 2.7s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.refund-expired-notification h4 {
+  margin: 0 0 8px 0;
+  color: #e74c3c;
+  font-size: 1rem;
+}
+
+.refund-expired-notification p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Refresh orders button */
+.refresh-orders-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-left: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.refresh-orders-button:hover {
+  background-color: #e8e8e8;
+}
+
+.refresh-orders-button:active {
+  transform: scale(0.98);
+}
+
+.refresh-icon {
+  font-size: 1rem;
+  animation: spin 0.8s linear infinite paused;
+}
+
+.refresh-orders-button:hover .refresh-icon {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

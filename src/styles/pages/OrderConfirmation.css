@@ -1,0 +1,245 @@
+/* src/styles/pages/OrderConfirmation.css */
+.order-confirmation-page {
+    padding: 40px 0;
+    background-color: #f8f8f8;
+  }
+  
+  .confirmation-container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .confirmation-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .success-icon {
+    color: #2ecc71;
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-header h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .confirmation-message {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .order-details {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-detail-item {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  
+  .detail-label {
+    width: 150px;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .detail-value {
+    flex-grow: 1;
+    color: #333;
+  }
+  
+  .detail-value.address {
+    line-height: 1.5;
+  }
+  
+  .order-summary-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-summary-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .summary-items {
+    margin-bottom: 20px;
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .summary-item:last-child {
+    border-bottom: none;
+  }
+  
+  .item-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .item-name {
+    font-weight: 500;
+  }
+  
+  .item-quantity {
+    background-color: #f0f0f0;
+    color: #666;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 10px;
+  }
+  
+  .item-price {
+    font-weight: bold;
+  }
+  
+  .summary-totals {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .grand-total {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+  }
+  
+  .confirmation-actions {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 50px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-button svg {
+    margin-right: 10px;
+  }
+  
+  .home-button {
+    background-color: #333;
+    color: white;
+  }
+  
+  .home-button:hover {
+    background-color: #222;
+  }
+  
+  .track-button {
+    background-color: #d11243;
+    color: white;
+  }
+  
+  .track-button:hover {
+    background-color: #b30f3a;
+  }
+  
+  .no-order-data {
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .no-order-data h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .no-order-data p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .no-order-data .home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d11243;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .no-order-data .home-button:hover {
+    background-color: #b30f3a;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .confirmation-container {
+      padding: 0 15px;
+    }
+    
+    .order-details, .order-summary-box {
+      padding: 20px;
+    }
+    
+    .order-detail-item {
+      flex-direction: column;
+    }
+    
+    .detail-label {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    
+    .confirmation-actions {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .confirmation-header h1 {
+      font-size: 24px;
+    }
+    
+    .success-icon {
+      font-size: 50px;
+    }
+    
+    .order-details, .order-summary-box {
+      padding: 15px;
+    }
+  }

@@ -1,0 +1,572 @@
+/* For screens that can't fit all banners - MOBILE VIEW */
+@media (max-width: 1023px) {
+  .slider-controls {
+    display: flex !important; /* Force show slider dots on mobile */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 50;
+  }
+  
+  .banner-card {
+    width: 100%; /* Full width on mobile */
+    max-width: 100%;
+    height: 180px;
+    flex: 0 0 90%; /* Take up 90% of container width */
+  }
+  
+  .banner-text h2 {
+    font-size: 20px;
+  }
+  
+  .banner-text p {
+    font-size: 13px;
+  }
+  
+  .banner-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Enable scroll snap for mobile */
+    justify-content: flex-start; /* Start alignment for carousel */
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  
+  .banner-card {
+    scroll-snap-align: center; /* Center the snapping for better control */
+  }
+}.banner {
+  max-width: 1280px;
+  margin: 20px auto;
+  padding: 0 20px;
+  overflow: visible;
+  width: 100%;
+}
+
+.banner-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.banner-slider {
+  position: relative;
+  margin-bottom: 15px;
+  overflow: visible;
+  width: 100%;
+}
+
+.banner-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+  justify-content: center; /* Center banners by default */
+  align-items: center;
+  overflow-y: visible;
+  padding-bottom: 30px; /* Add padding to ensure buttons are visible */
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  /* No scroll snap by default (for desktop) */
+}
+
+.banner-container::-webkit-scrollbar {
+  display: none;
+}
+
+.banner-card {
+  flex: 0 0 auto;
+  width: 350px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: visible; /* Changed from hidden to visible to show buttons */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 20px; /* Add margin to ensure buttons are visible */
+}
+
+.banner-content {
+  display: flex;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.banner-text {
+  width: 45%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-text h2 {
+  color: #333;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.banner-text p {
+  color: #555;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Banner card button styles */
+.banner-card-buttons {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: flex !important;
+  gap: 12px;
+  z-index: 100;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0);
+  width: auto;
+  height: auto;
+  min-width: 50px;
+}
+
+.banner-action-button {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  text-transform: capitalize;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative;
+  width: auto;
+  min-width: 100px;
+  height: auto;
+  line-height: normal;
+  text-align: center;
+}
+
+/* Navigation type specific styling */
+.bestsellers-button {
+  background-color: #e91e63;
+}
+
+.bestsellers-button:hover {
+  background-color: #c2185b;
+}
+
+.categories-button {
+  background-color: #2196f3;
+}
+
+.categories-button:hover {
+  background-color: #1976d2;
+}
+
+.matchday-essentials-button {
+  background-color: #ff9800;
+}
+
+.matchday-essentials-button:hover {
+  background-color: #f57c00;
+}
+
+.premium-selections-button {
+  background-color: #9c27b0;
+}
+
+.premium-selections-button:hover {
+  background-color: #7b1fa2;
+}
+
+.dynamic-section-button {
+  background-color: #4caf50;
+}
+
+.dynamic-section-button:hover {
+  background-color: #388e3c;
+}
+
+.custom-link-button {
+  background-color: #607d8b;
+}
+
+.custom-link-button:hover {
+  background-color: #455a64;
+}
+
+.slider-controls {
+  display: none; /* Hidden by default on all screens */
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 30;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: block;
+  margin: 0 5px;
+  opacity: 0.7;
+}
+
+.slider-dot.active {
+  background-color: #d11243;
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.slider-dot:hover {
+  background-color: #999;
+  opacity: 0.9;
+}
+
+.banner-loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.banner-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  color: #666;
+  font-size: 16px;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.spinner-icon {
+  font-size: 40px;
+  color: #d83c3c;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.meat-cut-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.meat-cut-button {
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.meat-cut-button.jc-jatka {
+  background-color: #114704;
+  color: #ffffff;
+}
+
+.meat-cut-button.jc-jatka.active {
+  background-color: #e53935;
+  color: white;
+  border-color: #c62828;
+}
+
+.meat-cut-button.halal-cut {
+  background-color: #2196f3;
+  color: #ffffff;
+}
+
+.meat-cut-button.halal-cut.active {
+  background-color: #43a047;
+  color: white;
+  border-color: #2e7d32;
+}
+
+.meat-cut-button.clear-filter {
+  background-color: #f8f8f8;
+  color: #333;
+  border-color: #e0e0e0;
+}
+
+.meat-cut-button.clear-filter:hover {
+  background-color: #e0e0e0;
+}
+
+/* Large screens - show all banners if possible */
+@media (min-width: 1200px) {
+  .banner-container {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .banner-card {
+    width: calc(33.33% - 20px);
+    max-width: 350px;
+    min-width: 280px;
+    margin: 0 10px 20px;
+  }
+}
+
+/* Fix to show all banners in a row on desktop */
+@media (min-width: 1024px) {
+  .banner-container {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+    overflow-x: visible; /* Allow all banners to be visible */
+  }
+  
+  .banner-card {
+    width: 30%;
+    max-width: 380px;
+    min-width: 250px;
+    flex: 0 0 auto;
+  }
+  
+  /* Hide slider dots on desktop */
+  .slider-controls {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    padding: 0 15px;
+  }
+  
+  .banner-container {
+    padding: 5px 0 20px 0;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  
+  .banner-card {
+    width: 90%;
+    max-width: 90%;
+    height: 160px;
+    flex: 0 0 90%;
+    margin-right: 5%;
+  }
+  
+  .banner-text {
+    padding: 15px;
+  }
+  
+  .banner-text h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .banner-text p {
+    font-size: 12px;
+  }
+  
+  .banner-card-buttons {
+    bottom: 10px;
+    left: 10px;
+    gap: 8px;
+  }
+  
+  .banner-action-button {
+    padding: 8px 16px;
+    font-size: 12px;
+    min-width: 80px;
+  }
+  
+  .meat-cut-options {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .slider-controls {
+    display: flex !important;
+    gap: 6px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 0 10px;
+  }
+  
+  .banner-container {
+    gap: 10px;
+    padding-bottom: 15px;
+    justify-content: flex-start;
+  }
+  
+  .banner-card {
+    width: 90%;
+    max-width: 90%;
+    height: 150px;
+    flex: 0 0 90%;
+    margin-right: 5%;
+    overflow: visible;
+  }
+  
+  .banner-text {
+    padding: 10px;
+  }
+  
+  .banner-text h2 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  
+  .banner-text p {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+  
+  .banner-card-buttons {
+    bottom: 10px;
+    left: 10px;
+    flex-direction: row;
+    gap: 6px;
+    z-index: 100;
+    transform: translateY(0);
+  }
+  
+  .banner-action-button {
+    padding: 6px 12px;
+    font-size: 11px;
+    min-width: 80px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    white-space: nowrap;
+  }
+  
+  .meat-cut-options {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .meat-cut-button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .slider-controls {
+    display: flex !important;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .banner-card {
+    width: 220px;
+    height: 140px;
+    overflow: visible;
+  }
+  
+  .banner-action-button {
+    padding: 5px 10px;
+    font-size: 10px;
+    min-width: 70px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  .banner-card-buttons {
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    z-index: 100;
+  }
+}
+
+/* Handle single banner case */
+.banner-container:has(.banner-card:only-child) .banner-card {
+  margin: 0 auto;
+}
+
+/* Smooth scrolling behavior - only apply scroll snap on mobile */
+@media (max-width: 1023px) {
+  .banner-container {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .banner-card {
+    scroll-snap-align: center;
+  }
+}
+
+/* Auto-scroll animation */
+@media (prefers-reduced-motion: no-preference) {
+  .banner-container {
+    scroll-behavior: smooth;
+  }
+}

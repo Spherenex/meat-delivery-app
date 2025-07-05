@@ -1,0 +1,484 @@
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 0 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.footer-logo img {
+  border-radius: 10px;
+  height: 60px;
+  width: auto;
+}
+
+.footer-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 30px;
+}
+
+.footer-section {
+  padding: 0 15px;
+  margin-bottom: 30px;
+  min-width: 160px;
+}
+
+.footer-section h4 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.section-subtitle {
+  color: #aaa;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background-color: #faecec;
+  border-radius: 50%;
+  color: #131212;
+  transition: background-color 0.2s ease;
+}
+
+.social-links a:hover {
+  background-color: #df1b3f;
+}
+
+.app-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.app-links img {
+  height: 40px;
+  width: auto;
+}
+
+/* Contact section */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.contact-section,
+.address-section,
+.security-section {
+  padding: 0 15px;
+  margin-bottom: 30px;
+  min-width: 250px;
+}
+
+.contact-info {
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  margin-bottom: 10px;
+}
+
+.contact-label {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.contact-value {
+  color: #bbb;
+}
+
+.address {
+  color: #080808;
+  line-height: 1.6;
+  margin-top: 5px;
+}
+
+.security-concern p {
+  color: #bbb;
+  margin-top: 5px;
+}
+
+.security-concern a {
+  color: #df1b3f;
+  text-decoration: none;
+}
+
+.security-concern a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .footer-section {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer-sections {
+    flex-direction: column;
+  }
+  
+  .footer-section {
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 0;
+  }
+  
+  .contact-container {
+    flex-direction: column;
+  }
+  
+  .contact-section,
+  .address-section,
+  .security-section {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 0 15px;
+  }
+  
+  .footer-logo img {
+    height: 50px;
+  }
+  
+  .footer-sections {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+  
+  .footer-section {
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h4 {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .footer-links a {
+    font-size: 13px;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  
+  .contact-section,
+  .address-section,
+  .security-section {
+    min-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 25px 0 15px;
+  }
+  
+  .footer-container {
+    padding: 0 15px;
+  }
+  
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  
+  .footer-logo img {
+    height: 45px;
+  }
+  
+  .social-links {
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .social-links a {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .app-links {
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .app-links img {
+    height: 35px;
+  }
+  
+  .footer-section h4 {
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+  }
+  
+  .footer-links li {
+    text-align: center;
+  }
+  
+  .contact-item, 
+  .address, 
+  .security-concern p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-logo img {
+    height: 40px;
+  }
+  
+  .social-links a {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .app-links img {
+    height: 30px;
+  }
+  
+  .footer-section h4 {
+    font-size: 14px;
+  }
+  
+  .footer-links a,
+  .section-subtitle,
+  .contact-value,
+  .address,
+  .security-concern p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 993px) {
+  /* For desktop layout - put all sections in one row */
+  .footer-sections {
+    flex-direction: row;
+  }
+  
+  .footer-section {
+    flex: 1;
+  }
+  
+  /* Give more space to the app links section */
+  .app-links-section {
+    flex: 1.5;
+  }
+}
+
+/* Add to src/styles/components/Footer.css */
+
+/* Merchant Form Modal Styles */
+.merchant-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.merchant-form-container {
+  background-color: white;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+  z-index: 1;
+}
+
+.merchant-form-header {
+  padding: 25px 30px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.merchant-form-header h2 {
+  font-size: 24px;
+  color: #d11243;
+  margin-bottom: 8px;
+}
+
+.merchant-form-header p {
+  color: #666;
+  font-size: 14px;
+}
+
+.merchant-form {
+  padding: 20px 30px 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #d11243;
+  outline: none;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin: 0 30px 15px;
+  font-size: 14px;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin: 0 30px 15px;
+  font-size: 14px;
+}
+
+.submit-button {
+  background-color: #d11243;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #b30f3a;
+}
+
+.submit-button:disabled {
+  background-color: #e57373;
+  cursor: not-allowed;
+}
+
+.form-note {
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .merchant-form-container {
+    max-width: 90%;
+  }
+  
+  .merchant-form-header {
+    padding: 20px 20px 10px;
+  }
+  
+  .merchant-form {
+    padding: 15px 20px 20px;
+  }
+  
+  .error-message, .success-message {
+    margin: 0 20px 15px;
+  }
+}

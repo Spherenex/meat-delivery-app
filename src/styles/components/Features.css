@@ -1,0 +1,78 @@
+/* src/styles/components/Features.css */
+.features {
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  
+  .feature {
+    padding: 20px;
+  }
+  
+  .feature-title {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .feature-title::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background-color: #d11243;
+  }
+  
+  .feature-title h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .feature-content {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  
+  @media (max-width: 1024px) {
+    .features {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .features {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .feature-title h3 {
+      font-size: 16px;
+    }
+    
+    .feature-content {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .features {
+      padding: 0 15px;
+      margin: 30px auto;
+    }
+    
+    .feature {
+      padding: 15px;
+    }
+    
+    .feature-title::before {
+      width: 30px;
+      height: 3px;
+    }
+  }

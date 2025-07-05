@@ -1,0 +1,122 @@
+/* src/styles/components/MatchDayEssentials.css */
+.match-day-section {
+    margin: 40px 0;
+  }
+  
+  .match-day-title {
+    margin-bottom: 25px;
+  }
+  
+  .match-day-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .match-day-subtitle {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .match-day-section .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .match-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .view-all {
+    color: #d11243;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+  
+  .view-all svg {
+    margin-left: 5px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .match-day-banner {
+    margin-bottom: 30px;
+    background-color: #fef2f4;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .match-day-banner h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d11243;
+  }
+  
+  .match-day-banner p {
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .banner-cta {
+    background-color: #d11243;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .match-day-section .product-grid {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+    }
+    
+    .match-day-title h2 {
+      font-size: 20px;
+    }
+    
+    .match-day-banner {
+      flex-direction: column;
+      text-align: center;
+      padding: 15px;
+    }
+    
+    .match-day-banner h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .banner-cta {
+      margin-top: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .match-day-section .product-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    
+    .match-day-title h2 {
+      font-size: 18px;
+    }
+    
+    .match-day-subtitle {
+      font-size: 12px;
+    }
+  }
