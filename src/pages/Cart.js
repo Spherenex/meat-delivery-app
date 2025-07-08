@@ -2802,14 +2802,14 @@ const Cart = () => {
               </button>
 
               {/* Add Refund Request button */}
-              {isRefundAvailable(order) && (
+              {/* {isRefundAvailable(order) && (
                 <button
                   className="refund-request-button"
                   onClick={() => openRefundRequest(order)}
                 >
                   <FaUndo /> Request Refund
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         ))}
@@ -2929,7 +2929,7 @@ const Cart = () => {
           <div className="cart-summary">
             <h2>Order Summary</h2>
 
-            <div className="coupon-code">
+            {/* <div className="coupon-code">
               <input
                 type="text"
                 placeholder="Enter coupon code"
@@ -2944,7 +2944,7 @@ const Cart = () => {
               >
                 Apply
               </button>
-            </div>
+            </div> */}
 
             {couponApplied && (
               <div className="applied-coupon">
