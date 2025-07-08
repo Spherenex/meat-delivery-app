@@ -11,7 +11,6 @@
 // // Create Express app
 // const app = express();
 
-
 // // Middleware
 // app.use(cors({ origin: true }));
 // app.use(bodyParser.json());
@@ -451,7 +450,7 @@
 // }
 
 // // Create Express app
-// // const app = express();
+// const app = express();
 
 // // Configure CORS to allow requests from your frontend
 // const allowedOrigins = [
@@ -1560,102 +1559,52 @@
 
 
 
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const crypto = require('crypto');
 
-// Detect environment
-// const isLocalEnvironment = process.env.NODE_ENV === 'development' || true;
-// Correct environment detection
-const isLocalEnvironment = process.env.NODE_ENV === 'development' && !process.env.FUNCTION_TARGET;
-console.log(`Starting server in ${isLocalEnvironment ? 'local' : 'cloud'} environment...`);
-
 // Initialize Firebase Admin
-let admin;
-try {
-  admin = require('firebase-admin');
-  
-  if (!admin.apps.length) {
-    console.log('Initializing Firebase Admin...');
-    try {
-      const serviceAccount = require('./service-account-key.json');
-      admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-        databaseURL: `https://${process.env.GCLOUD_PROJECT || 'zappcart-control-panel'}.firebaseio.com`
-      });
-      console.log('Firebase initialized with service account');
-    } catch (e) {
-      console.log('Service account not found, using default initialization');
-      admin.initializeApp();
-      console.log('Firebase initialized with default credentials');
-    }
-  }
-} catch (error) {
-  console.error('Firebase Admin initialization error:', error.message);
-  console.log('Continuing with limited functionality...');
-}
-
-// Setup functions object (real or mock)
-let functions;
-try {
-  functions = require('firebase-functions');
-  console.log('Firebase Functions module loaded');
-} catch (error) {
-  console.log('Firebase Functions module not available, using mock');
-  functions = {
-    config: () => {
-      console.log('Getting mock functions config');
-      return {
-        easebuzz: {
-          key: process.env.EASEBUZZ_KEY || '2PBP7IABZ2',
-          salt: process.env.EASEBUZZ_SALT || 'DAH88E3UWQ'
-        }
-      };
-    },
-    https: {
-      onRequest: (app) => app
-    }
-  };
+if (!admin.apps.length) {
+  console.log('Initializing Firebase Admin...');
+  admin.initializeApp();
+  console.log('Firebase initialized with default credentials');
 }
 
 // Create Express app
 const app = express();
 
-// Configure CORS to allow requests from your frontend
+// Enhanced CORS configuration
 const allowedOrigins = [
   'http://localhost:5002',
   'http://localhost:3000', 
   'http://localhost:5173',
-  'http://localhost:5003', // Add port 5003 based on the screenshot
+  'http://localhost:5003',
   'https://zappcart-control-panel.web.app'
 ];
 
-// Enhanced CORS middleware
+// Comprehensive CORS setup
 app.use(cors({
   origin: function(origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, etc.)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       console.log('CORS blocked origin:', origin);
-      // Still allow but log it
+      // Still allow but log it for debugging
       callback(null, true);
     }
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept']
 }));
 
-// Add a specific CORS pre-flight handler
-app.options('*', cors());
-
-// Add a middleware to manually set CORS headers as a fallback
+// Additional CORS headers for problematic clients
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+  const origin = req.headers.origin;
+  res.header('Access-Control-Allow-Origin', origin || '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Credentials', 'true');
@@ -1663,7 +1612,6 @@ app.use((req, res, next) => {
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
-  
   next();
 });
 
@@ -1671,10 +1619,14 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Helper function to determine if we're in a local environment
+const isLocalEnvironment = () => {
+  return process.env.NODE_ENV === 'development' || !process.env.FUNCTION_NAME;
+};
+
 // Dynamic base URL based on environment
 const getBaseUrl = () => {
-  if (isLocalEnvironment) {
-    // Match the port that your frontend is trying to connect to
+  if (isLocalEnvironment()) {
     return process.env.LOCAL_BASE_URL || 'http://localhost:5002';
   } else {
     return `https://${process.env.FUNCTION_REGION || 'us-central1'}-${process.env.GCLOUD_PROJECT || 'zappcart-control-panel'}.cloudfunctions.net/paymentApi`;
@@ -1683,26 +1635,40 @@ const getBaseUrl = () => {
 
 // Dynamic frontend URL based on environment
 const getFrontendUrl = () => {
-  if (isLocalEnvironment) {
-    return process.env.LOCAL_FRONTEND_URL || 'http://localhost:5003'; // Updated to 5003 based on your screenshot
+  if (isLocalEnvironment()) {
+    return process.env.LOCAL_FRONTEND_URL || 'http://localhost:5003';
   } else {
     return 'https://zappcart-control-panel.web.app';
   }
 };
 
-// Health check endpoint
+// Root endpoint
 app.get('/', (req, res) => {
   console.log('Root endpoint accessed');
-  res.send('Server is running');
+  res.send('Payment API Server is running');
 });
 
+// Health check endpoint - Note: we're adding BOTH /api/health and /api/health1
 app.get('/api/health', (req, res) => {
   console.log('Health check endpoint accessed');
   res.json({ 
     status: 'ok', 
     message: 'Server is running',
     firebase: admin ? 'connected' : 'not initialized',
-    environment: isLocalEnvironment ? 'development' : 'production',
+    environment: isLocalEnvironment() ? 'development' : 'production',
+    region: process.env.FUNCTION_REGION || 'us-central1',
+    project: process.env.GCLOUD_PROJECT || 'zappcart-control-panel'
+  });
+});
+
+// Add the health1 endpoint to match what your frontend is requesting
+app.get('/api/health1', (req, res) => {
+  console.log('Health1 check endpoint accessed');
+  res.json({ 
+    status: 'ok', 
+    message: 'Server is running',
+    firebase: admin ? 'connected' : 'not initialized',
+    environment: isLocalEnvironment() ? 'development' : 'production',
     cors: 'enabled'
   });
 });
@@ -1725,10 +1691,12 @@ app.get('/api/check-env', (req, res) => {
     key_preview: keyPreview,
     salt_preview: saltPreview,
     firebase: admin ? 'connected' : 'not initialized',
-    environment: isLocalEnvironment ? 'development' : 'production',
+    environment: isLocalEnvironment() ? 'development' : 'production',
     base_url: getBaseUrl(),
     frontend_url: getFrontendUrl(),
-    cors: 'enabled'
+    function_name: process.env.FUNCTION_NAME || 'Not running as a function',
+    function_region: process.env.FUNCTION_REGION || 'us-central1',
+    gcloud_project: process.env.GCLOUD_PROJECT || 'zappcart-control-panel'
   });
 });
 
@@ -1777,6 +1745,7 @@ app.post('/payment-success', async (req, res) => {
       
       // Use dynamic frontend URL
       const appUrl = getFrontendUrl();
+      console.log(`Redirecting to: ${appUrl}/payment-success`);
       res.redirect(`${appUrl}/payment-success?${queryParams.toString()}`);
     } catch (error) {
       console.error('Firebase operation error:', error);
@@ -1834,6 +1803,7 @@ app.post('/payment-failure', async (req, res) => {
       
       // Use dynamic frontend URL
       const appUrl = getFrontendUrl();
+      console.log(`Redirecting to: ${appUrl}/payment-failure`);
       res.redirect(`${appUrl}/payment-failure?${queryParams.toString()}`);
     } catch (error) {
       console.error('Firebase operation error:', error);
@@ -1849,7 +1819,7 @@ app.post('/payment-failure', async (req, res) => {
   }
 });
 
-// Payment initiation endpoint - FULL IMPLEMENTATION
+// Payment initiation endpoint
 app.post('/api/initiate-payment', async (req, res) => {
   try {
     console.log('Received payment request:', req.body);
@@ -1898,14 +1868,9 @@ app.post('/api/initiate-payment', async (req, res) => {
     const txnid = orderId || `TXN${Date.now()}`;
     console.log('Using transaction ID:', txnid);
 
-    // 7. Get Easebuzz credentials - use env vars for local, functions.config for prod
-    const key = isLocalEnvironment ? 
-      (process.env.EASEBUZZ_KEY || '2PBP7IABZ2') :
-      (functions.config().easebuzz?.key || '2PBP7IABZ2');
-      
-    const salt = isLocalEnvironment ?
-      (process.env.EASEBUZZ_SALT || 'DAH88E3UWQ') :
-      (functions.config().easebuzz?.salt || 'DAH88E3UWQ');
+    // 7. Get Easebuzz credentials
+    const key = functions.config().easebuzz?.key || '2PBP7IABZ2';
+    const salt = functions.config().easebuzz?.salt || 'DAH88E3UWQ';
 
     if (!key || !salt) {
       console.error('Missing Easebuzz credentials');
@@ -1917,6 +1882,7 @@ app.post('/api/initiate-payment', async (req, res) => {
 
     // Get the function URLs for success/failure callbacks - use dynamic base URL
     const functionBaseUrl = getBaseUrl();
+    console.log('Using base URL for callbacks:', functionBaseUrl);
 
     // 8. Create payment data with exact field names required by Easebuzz
     const paymentData = {
@@ -2009,14 +1975,9 @@ app.post('/api/refund', async (req, res) => {
     // Format the amount to 2 decimal places
     const formattedAmount = parseFloat(refundAmount).toFixed(2);
     
-    // Get Easebuzz credentials - use env vars for local, functions.config for prod
-    const key = isLocalEnvironment ? 
-      (process.env.EASEBUZZ_KEY || '2PBP7IABZ2') :
-      (functions.config().easebuzz?.key || '2PBP7IABZ2');
-      
-    const salt = isLocalEnvironment ?
-      (process.env.EASEBUZZ_SALT || 'DAH88E3UWQ') :
-      (functions.config().easebuzz?.salt || 'DAH88E3UWQ');
+    // Get Easebuzz credentials
+    const key = functions.config().easebuzz?.key || '2PBP7IABZ2';
+    const salt = functions.config().easebuzz?.salt || 'DAH88E3UWQ';
     
     // Prepare refund data
     const refundData = {
@@ -2043,16 +2004,7 @@ app.post('/api/refund', async (req, res) => {
     refundData.hash = hash;
     
     // Use node-fetch for API calls
-    let fetch;
-    try {
-      fetch = require('node-fetch');
-    } catch (error) {
-      console.error('node-fetch not available, installing it...');
-      return res.status(500).json({
-        status: 0,
-        msg: 'node-fetch module not found. Please run: npm install node-fetch@2'
-      });
-    }
+    const fetch = require('node-fetch');
     
     // Call Easebuzz refund API
     const response = await fetch('https://testpay.easebuzz.in/transaction/v1/refund', {
@@ -2109,34 +2061,16 @@ app.post('/api/refund', async (req, res) => {
   }
 });
 
-// Set the port for local server - MATCH THE PORT YOUR FRONTEND IS TRYING TO ACCESS
-const PORT = process.env.PORT || 5002;
-
-// Only start local server when running in local environment
-if (isLocalEnvironment) {
-  const server = app.listen(PORT, () => {
+// Set up local server only when running locally
+if (isLocalEnvironment()) {
+  const PORT = process.env.PORT || 5002;
+  app.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`);
     console.log(`📡 Base URL: ${getBaseUrl()}`);
     console.log(`🌐 Frontend URL: ${getFrontendUrl()}`);
-    console.log(`🔧 Environment: ${isLocalEnvironment ? 'development' : 'production'}`);
     console.log(`👉 Try accessing: http://localhost:${PORT}/api/health`);
-  });
-
-  // Handle server errors
-  server.on('error', (error) => {
-    console.error('Server error:', error);
-    if (error.code === 'EADDRINUSE') {
-      console.error(`Port ${PORT} is already in use. Try a different port.`);
-    }
   });
 }
 
 // Export for Firebase Functions
-try {
-  exports.paymentApi = functions.https.onRequest(app);
-  console.log('Exported paymentApi for Firebase Functions');
-} catch (error) {
-  console.error('Error exporting Firebase function:', error);
-}
-
-console.log('Server initialization completed');
+exports.paymentApi = functions.https.onRequest(app);
